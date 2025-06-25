@@ -1,0 +1,66 @@
+﻿@model LibraryAutomation1.Models.Loan
+
+@{
+    ViewData["Title"] = "Kitap İade";
+}
+
+<h2>Kitap İade</h2>
+
+<div class="card mt-4">
+    <div class="card-body">
+        <h4 class="card-title text-primary">@Model.Book.Title</h4>
+
+        <dl class="row">
+            <dt class="col-sm-4">Üye</dt>
+            <dd class="col-sm-8">@Model.Member.FullName</dd>
+
+            <dt class="col-sm-4">Ödünç Alınma Tarihi</dt>
+            <dd class="col-sm-8">@Model.LoanDate.ToString("dd.MM.yyyy")</dd>
+
+            <dt class="col-sm-4">Teslim Tarihi</dt>
+            <dd class="col-sm-8">@Model.DueDate.ToString("dd.MM.yyyy")</dd>
+
+            <dt class="col-sm-4">Gecikme Durumu</dt>
+            <dd class="col-sm-8">
+                @if (Model.DueDate.Date < DateTime.Now.Date)
+                {
+                    <span class="text-danger fw-bold">Teslim tarihi geçmiş</span>
+                }
+                else
+                {
+                    <span class="text-success">Zamanında</span>
+                }
+            </dd>
+
+            @if (Model.LateFee > 0)
+            {
+                <dt class="col-sm-4">Gecikme Ücreti</dt>
+                <dd class="col-sm-8 text-danger fw-bold">@Model.LateFee.ToString("C")</dd>
+            }
+        </dl>
+
+        <form asp-action="ConfirmReturn" method="post">
+            <input type="hidden" name="id" value="@Model.Id" />
+
+            <div class="mb-3">
+                <label for="rating" class="form-label">Kitabı Puanlayın (1-5):</label>
+                <select class="form-select" name="rating" id="rating">
+                    <option value="">Puan Verme</option>
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <option value="@i">@i</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="comment" class="form-label">Yorum (isteğe bağlı):</label>
+                <textarea class="form-control" name="comment" id="comment" rows="3" placeholder="Kitap hakkında yorumunuzu yazabilirsiniz..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">İade Et</button>
+            <a asp-action="Index" class="btn btn-secondary ms-2">İptal</a>
+        </form>
+    </div>
+</div>
+

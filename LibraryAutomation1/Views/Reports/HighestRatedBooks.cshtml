@@ -1,0 +1,28 @@
+﻿@model IEnumerable<LibraryAutomation1.Models.Book>
+@{
+    ViewData["Title"] = "En Yüksek Puanlı Kitaplar";
+    var minRatings = ViewBag.MinRatings ?? 0;
+}
+
+<h2>@minRatings ve üzeri oy alan En Yüksek Puanlı Kitaplar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Ortalama Puan</th>
+            <th>Oy Sayısı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@book.AverageRating</td>
+                <td>@book.RatingCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LibraryAutomation1.Models.Loan>
+
+@{
+    ViewData["Title"] = "Ödünç Alma İşlemleri";
+}
+
+<h1>Ödünç Alma İşlemleri</h1>
+
+<p>
+    <!-- Yeni ödünç verme formuna geçiş -->
+    <a asp-action="Create" class="btn btn-primary">Yeni Ödünç Verme</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kitap</th>
+            <th>Üye</th>
+            <th>Ödünç Alma Tarihi</th>
+            <th>İade Tarihi</th>
+            <th>Durum</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Book.Title)</td>
+                <td>@Html.DisplayFor(modelItem => item.Member.FullName)</td>
+                <td>@Html.DisplayFor(modelItem => item.LoanDate)</td>
+
+                <!-- İade tarihi varsa göster, yoksa mesaj -->
+                <td>
+                    @if (item.ReturnDate.HasValue)
+                    {
+                        @Html.DisplayFor(modelItem => item.ReturnDate)
+                    }
+                    else
+                    {
+                        <span class="text-muted">Henüz iade edilmedi</span>
+                    }
+                </td>
+
+                <!-- Durum etiketi -->
+                <td>
+                    @if (item.ReturnDate.HasValue)
+                    {
+                        <span class="badge bg-success">İade Edildi</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning">Ödünç Verilmiş</span>
+                    }
+                </td>
+
+                <!-- İade alma ve detay butonları -->
+                <td>
+                    @if (!item.ReturnDate.HasValue)
+                    {
+                        <form asp-action="Return" asp-route-id="@item.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-sm btn-success"
+                                    onclick="return confirm('Bu kitabı iade almak istediğinizden emin misiniz?')">
+                                İade Al
+                            </button>
+                        </form>
+                    }
+
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">Detay</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,103 @@
+﻿@model IEnumerable<LibraryAutomation1.Models.Book>
+
+@{
+    ViewData["Title"] = "En Yüksek Puanlı Kitaplar";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4"><i class="fas fa-star-half-alt"></i> @ViewData["Title"]</h2> @* Font Awesome ikonu eklendi *@
+    <hr />
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    @* Her kitap için ızgara düzeni *@
+                    <div class="card h-100 shadow-sm">
+                        @* Kart görünümü ve yükseklik sabitleme *@
+                        <img src="@(string.IsNullOrEmpty(item.CoverImageUrl) ? "/images/default-book.png" : item.CoverImageUrl)"
+                             class="card-img-top book-cover-img" alt="Kitap Kapağı"
+                             onerror="this.onerror=null;this.src='/images/default-book.png';" /> @* Kapak resmi ve hata durumunda varsayılan resim *@
+                        <div class="card-body d-flex flex-column">
+                            @* Kart içeriği esnek düzen *@
+                            <h5 class="card-title text-truncate" title="@item.Title">@Html.DisplayFor(modelItem => item.Title)</h5> @* Başlık ve kesme *@
+                            <p class="card-text text-muted">@Html.DisplayFor(modelItem => item.Author)</p> @* Yazar *@
+                            <p class="card-text mb-2">
+                                <strong>Puan:</strong> <span class="badge bg-warning text-dark">@item.AverageRating.ToString("0.00") / 5</span>
+                                (<small>@item.RatingCount yorum</small>) @* Ortalama puan ve yorum sayısı *@
+                            </p>
+                            <div class="mt-auto">
+                                @* Butonları alta hizala *@
+                                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm"><i class="fas fa-info-circle"></i> Detaylar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center" role="alert">
+            Henüz yüksek puanlı kitap bulunmamaktadır. İlk yorum yapan siz olun!
+        </div>
+    }
+
+    <div class="mt-4 text-center">
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Kitap Listesine Geri Dön</a>
+    </div>
+</div>
+
+@section Scripts {
+}
+
+@section Styles {
+    <style>
+        .book-cover-img {
+            width: 100%;
+            height: 250px; /* Kapak resimleri için sabit yükseklik */
+            object-fit: cover; /* Oranları koruyarak alanı doldurur */
+            border-bottom: 1px solid #e9ecef;
+            border-top-left-radius: calc(.25rem - 1px);
+            border-top-right-radius: calc(.25rem - 1px);
+        }
+
+        .card {
+            border-radius: 8px;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+
+            .card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+            }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #343a40;
+            line-height: 1.3;
+            max-height: 2.6em; /* 2 satır başlık için */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: normal; /* text-truncate ile birlikte çalışması için */
+        }
+
+        .card-text {
+            font-size: 0.95rem;
+            color: #6c757d;
+        }
+
+        .badge.bg-warning {
+            background-color: #ffc107 !important;
+            color: #212529 !important;
+            font-weight: bold;
+        }
+    </style>
+}

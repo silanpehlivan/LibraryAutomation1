@@ -1,0 +1,44 @@
+﻿@model IEnumerable<dynamic> 
+@{
+    ViewData["Title"] = "Puanlama İstatistikleri";
+    var topRated = ViewBag.TopRatedBooks as List<LibraryAutomation1.Models.Book>;
+    var recentRatings = ViewBag.RecentRatings as List<LibraryAutomation1.Models.BookRating>;
+}
+
+<h2>Puan Dağılımı</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Puan</th>
+            <th>Sayısı</th>
+            <th>Yüzde</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Rating</td>
+                <td>@item.Count</td>
+                <td>@String.Format("{0:0.##}%", item.Percentage)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h3>En Yüksek Puanlı Kitaplar</h3>
+<ul>
+    @foreach (var book in topRated)
+    {
+        <li>@book.Title - Ort. Puan: @book.AverageRating (@book.RatingCount oy)</li>
+    }
+</ul>
+
+<h3>Son Puanlamalar</h3>
+<ul>
+    @foreach (var rating in recentRatings)
+    {
+        <li>@rating.Member.FullName → "@rating.Book.Title": @rating.Rating yıldız (@rating.RatingDate.ToString("dd.MM.yyyy"))</li>
+    }
+</ul>
+

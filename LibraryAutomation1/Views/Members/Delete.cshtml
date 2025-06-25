@@ -1,0 +1,30 @@
+﻿@model LibraryAutomation1.Models.Member
+
+@{
+    ViewData["Title"] = "Üye Sil";
+}
+
+<h1>Üye Sil</h1>
+
+<h3>Bu üyeyi silmek istediğinizden emin misiniz?</h3>
+<hr />
+
+<!-- Üye bilgileri görsel olarak gösterilir -->
+<dl class="row">
+    <dt class="col-sm-2">Ad</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.FirstName)</dd>
+
+    <dt class="col-sm-2">Soyad</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.LastName)</dd>
+</dl>
+
+<!-- Silme formu -->
+<form asp-action="Delete">
+    <!-- Silinecek üyenin ID'si gizli olarak gönderilir -->
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Sil ve İptal butonları -->
+    <input type="submit" value="Sil" class="btn btn-danger" />
+    <a asp-action="Index" class="btn btn-secondary">İptal</a>
+</form>
+

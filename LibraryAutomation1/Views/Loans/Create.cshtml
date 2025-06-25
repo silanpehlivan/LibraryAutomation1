@@ -1,0 +1,54 @@
+﻿@model LibraryAutomation1.Models.Loan
+
+@{
+    ViewData["Title"] = "Kitap Ödünç Ver";
+}
+
+<h1>Kitap Ödünç Ver</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- Ödünç verme formu -->
+        <form asp-action="Create">
+            <!-- Model doğrulama hatalarını göster -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Kitap Seçimi -->
+            <div class="form-group">
+                <label asp-for="BookId" class="control-label">Kitap</label>
+                <select asp-for="BookId" class="form-control" asp-items="ViewBag.BookId">
+                    <option value="">-- Kitap Seçin --</option>
+                </select>
+                <span asp-validation-for="BookId" class="text-danger"></span>
+            </div>
+
+            <!-- Üye Seçimi -->
+            <div class="form-group">
+                <label asp-for="MemberId" class="control-label">Üye</label>
+                <select asp-for="MemberId" class="form-control" asp-items="ViewBag.MemberId">
+                    <option value="">-- Üye Seçin --</option>
+                </select>
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+
+            <!-- Gönder butonu -->
+            <div class="form-group">
+                <input type="submit" value="Ödünç Ver" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Listeye dönüş bağlantısı -->
+<div>
+    <a asp-action="Index">Ödünç Listesine Dön</a>
+</div>
+
+<!-- Doğrulama scriptleri -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

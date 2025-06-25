@@ -1,0 +1,72 @@
+﻿@model List<LibraryAutomation1.Models.Loan>
+
+@{
+    ViewData["Title"] = "Okuma Geçmişi";
+    var member = ViewBag.Member as LibraryAutomation1.Models.Member;
+}
+
+<h2>@member.FullName - Okuma Geçmişi</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Bu üyeye ait geçmiş ödünç alma kaydı bulunmamaktadır.</div>
+}
+else
+{
+    <table class="table table-bordered table-striped mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Kitap</th>
+                <th>Ödünç Tarihi</th>
+                <th>İade Tarihi</th>
+                <th>Durum</th>
+                <th>Gecikme Ücreti</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var loan in Model)
+            {
+                <tr>
+                    <td>@loan.Book.Title</td>
+                    <td>@loan.LoanDate.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        @if (loan.ReturnDate != null)
+                        {
+                            @loan.ReturnDate?.ToString("dd.MM.yyyy")
+                        }
+                        else
+                        {
+                            <span class="text-warning">Teslim edilmedi</span>
+                        }
+                    </td>
+                    <td>
+                        @switch (loan.Status)
+                        {
+                            case LibraryAutomation1.Models.LoanStatus.Active:
+                                <span class="badge bg-info">Aktif</span>
+                                break;
+                            case LibraryAutomation1.Models.LoanStatus.Returned:
+                                <span class="badge bg-success">İade Edildi</span>
+                                break;
+                            case LibraryAutomation1.Models.LoanStatus.Overdue:
+                                <span class="badge bg-danger">Gecikmiş</span>
+                                break;
+                        }
+                    </td>
+                    <td>
+                        @if (loan.LateFee > 0)
+                        {
+                            <span class="text-danger fw-bold">@loan.LateFee.ToString("C")</span>
+                        }
+                        else
+                        {
+                            <span>-</span>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<a asp-action="Details" asp-route-id="@member.Id" class="btn btn-secondary mt-3">Geri Dön</a>
+

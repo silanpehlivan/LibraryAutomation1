@@ -1,0 +1,27 @@
+﻿@model IEnumerable<dynamic>
+@{
+    ViewData["Title"] = "En Çok Ödünç Alınan Kitaplar";
+    var months = ViewBag.Months ?? 0;
+}
+
+<h2>@months aya göre En Çok Ödünç Alınan Kitaplar</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Kitap Adı</th>
+            <th>Toplam Ödünç Alınma</th>
+            <th>Son Alınma Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Book?.Title</td>
+                <td>@item.BorrowCount</td>
+                <td>@item.LastBorrowed?.ToString("dd.MM.yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>

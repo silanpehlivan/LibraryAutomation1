@@ -1,0 +1,42 @@
+﻿@model List<LibraryAutomation1.Models.BookRating>
+
+@{
+    ViewData["Title"] = "Üye Kitap Puanları";
+    var member = ViewBag.Member as LibraryAutomation1.Models.Member;
+}
+
+<h2>@member.FullName - Kitap Puanları</h2>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">Bu üyenin henüz kitaplara verdiği bir puan bulunmamaktadır.</div>
+}
+else
+{
+    <table class="table table-striped table-bordered mt-3">
+        <thead class="table-dark">
+            <tr>
+                <th>Kitap</th>
+                <th>Puan</th>
+                <th>Yorum</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var rating in Model)
+            {
+                <tr>
+                    <td>@rating.Book.Title</td>
+                    <td>
+                        <span class="badge bg-warning text-dark">@rating.Rating / 5</span>
+                    </td>
+                    <td>@(string.IsNullOrWhiteSpace(rating.Comment) ? "-" : rating.Comment)</td>
+                    <td>@rating.RatingDate.ToString("dd.MM.yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-action="Details" asp-route-id="@member.Id" class="btn btn-secondary mt-3">Geri Dön</a>
+

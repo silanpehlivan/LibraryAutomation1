@@ -1,0 +1,15 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Genel İstatistikler";
+}
+
+<h2>Genel İstatistikler</h2>
+
+<ul>
+    <li>Toplam Kitap: @Model.TotalBooks</li>
+    <li>Toplam Üye: @Model.TotalMembers</li>
+    <li>Aktif Ödünç Alımlar: @Model.ActiveLoans</li>
+    <li>Geciken Ödünçler: @Model.OverdueLoans</li>
+    <li>Toplam Puanlama: @Model.TotalRatings</li>
+    <li>Ortalama Puan: @Model.AverageRating</li>
+</ul>

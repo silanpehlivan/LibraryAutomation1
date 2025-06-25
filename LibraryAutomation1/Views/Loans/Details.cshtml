@@ -1,0 +1,42 @@
+﻿@model LibraryAutomation1.Models.Loan
+
+@{
+    ViewData["Title"] = "Ödünç Detayı";
+}
+
+<h1>Ödünç Detayı</h1>
+<hr />
+
+<!-- Ödünç alma detay bilgileri -->
+<dl class="row">
+    <!-- Kitap Bilgisi -->
+    <dt class="col-sm-2">Kitap</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Book.Title)</dd>
+
+    <!-- Üye Bilgisi -->
+    <dt class="col-sm-2">Üye</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.Member.FullName)</dd>
+
+    <!-- Ödünç Alma Tarihi -->
+    <dt class="col-sm-2">Ödünç Alma Tarihi</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(model => model.LoanDate)</dd>
+
+    <!-- İade Tarihi -->
+    <dt class="col-sm-2">İade Tarihi</dt>
+    <dd class="col-sm-10">
+        @if (Model.ReturnDate.HasValue)
+        {
+            @Html.DisplayFor(model => model.ReturnDate)
+        }
+        else
+        {
+            <span class="text-muted">Henüz iade edilmedi</span>
+        }
+    </dd>
+</dl>
+
+<!-- Geri dönüş butonu -->
+<div>
+    <a asp-action="Index" class="btn btn-secondary">Ödünç Listesine Dön</a>
+</div>
+

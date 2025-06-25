@@ -1,0 +1,85 @@
+﻿@model LibraryAutomation1.Models.Member
+
+@{
+    ViewData["Title"] = "Üye Düzenle";
+}
+
+<h1>Üye Düzenle</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <!-- Üye düzenleme formu -->
+        <form asp-controller="Members" asp-action="Edit" method="post">
+            <!-- Model doğrulama hatalarını göster -->
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Gizli ID bilgisi -->
+            <input type="hidden" asp-for="Id" />
+
+            <!-- Ad -->
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label">Ad</label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+
+            <!-- Soyad -->
+            <div class="form-group">
+                <label asp-for="LastName" class="control-label">Soyad</label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone" class="control-label">Telefon</label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label">Adres</label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Role" class="control-label">Role</label>
+                <input asp-for="Role" class="form-control" />
+                <span asp-validation-for="Role" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PasswordHash" class="control-label">PasswordHash</label>
+                <input asp-for="PasswordHash" class="form-control" />
+                <span asp-validation-for="PasswordHash" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label">IsActive</label><br />
+				<input type="radio" name="IsActive" value="True" />Active:<br />
+                <input type="radio" name="IsActive" value="False" />Nonactive:
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+          
+            
+            <!-- Kaydet butonu -->
+            <div class="form-group">
+                <input type="submit" value="Güncelle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Listeye geri dönüş linki -->
+<div>
+    <a asp-action="Index">Üye Listesine Dön</a>
+</div>
+
+<!-- Doğrulama scriptleri -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

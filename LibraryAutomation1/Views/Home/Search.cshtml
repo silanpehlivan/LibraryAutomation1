@@ -1,0 +1,42 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Arama Sonuçları";
+    var books = Model.Books as List<LibraryAutomation1.Models.Book>;
+    var members = Model.Members as List<LibraryAutomation1.Models.Member>;
+    string query = Model.Query as string ?? "";
+}
+
+<h2>Arama Sonuçları</h2>
+
+<p>Aranan: <strong>@query</strong></p>
+
+<h3>Kitaplar (@books.Count)</h3>
+@if (books.Count == 0)
+{
+    <p>Sonuç bulunamadı.</p>
+}
+else
+{
+    <ul>
+        @foreach (var book in books)
+        {
+            <li>@book.Title - @book.Author</li>
+        }
+    </ul>
+}
+
+<h3>Üyeler (@members.Count)</h3>
+@if (members.Count == 0)
+{
+    <p>Sonuç bulunamadı.</p>
+}
+else
+{
+    <ul>
+        @foreach (var member in members)
+        {
+            <li>@member.FullName (@member.Email)</li>
+        }
+    </ul>
+}

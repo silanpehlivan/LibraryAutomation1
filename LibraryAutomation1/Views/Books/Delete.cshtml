@@ -1,0 +1,59 @@
+﻿@model LibraryAutomation1.Models.Book
+
+@{
+    ViewData["Title"] = "Kitap Sil";
+}
+
+<div class="container">
+    <h2><i class="fas fa-trash-alt"></i> Kitap Sil</h2>
+    <h3 class="text-danger">Bu kitabı silmek istediğinizden emin misiniz?</h3>
+    <hr />
+    <div>
+        <h4>Kitap Detayları</h4>
+        <dl class="row">
+            <dt class="col-sm-3">
+                Başlık:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+            <dt class="col-sm-3">
+                Yazar:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+            <dt class="col-sm-3">
+                Yayın Yılı:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.PublicationYear)
+            </dd>
+            <dt class="col-sm-3">
+                Tür:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.Genre)
+            </dd>
+            <dt class="col-sm-3">
+                ISBN:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ISBN)
+            </dd>
+            <dt class="col-sm-3">
+                Müsait:
+            </dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.IsAvailable)
+            </dd>
+            
+        </dl>
+
+        <form asp-action="DeleteConfirmed">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Sil</button> |
+            <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Listeye Geri Dön</a>
+        </form>
+    </div>
+</div>

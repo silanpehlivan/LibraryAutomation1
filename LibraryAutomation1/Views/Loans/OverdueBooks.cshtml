@@ -1,0 +1,97 @@
+﻿@model IEnumerable<LibraryAutomation1.Models.Loan>
+
+@{
+    ViewData["Title"] = "Gecikmiş Kitaplar";
+}
+
+<div class="container mt-4">
+    <h2 class="mb-4 text-danger"><i class="fas fa-exclamation-triangle"></i> @ViewData["Title"]</h2>
+    <hr />
+
+    @if (Model != null && Model.Any())
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Kitap Başlığı</th>
+                    <th>Yazar</th>
+                    <th>Ödünç Alan Üye</th>
+                    <th>Ödünç Alma Tarihi</th>
+                    <th>Son İade Tarihi</th>
+                    <th>Gecikme Günü</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var loan in Model)
+                {
+                    @* Controller'da zaten gecikmiş olanlar filtrelendiği için burada ek bir kontrole gerek yok,
+                       ancak çift kontrol için bırakılabilir veya kaldırılabilir.
+                       loan.ReturnDate == null && loan.DueDate < DateTime.Now kontrolü Controller'da yapıldığı için,
+                       buradaki if bloğunu tamamen kaldırabilirsiniz. *@
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => loan.Book.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => loan.Book.Author)
+                        </td>
+                        <td>
+                            @* Üye tam adının Member modelinizde FullName propertysi olduğunu varsayıyorum.
+                               Eğer yoksa, loan.Member.FirstName + " " + loan.Member.LastName şeklinde birleştirebilirsiniz. *@
+                            @Html.DisplayFor(modelItem => loan.Member.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => loan.LoanDate)
+                        </td>
+                        <td class="text-danger font-weight-bold">
+                            @Html.DisplayFor(modelItem => loan.DueDate)
+                        </td>
+                        <td>
+                            @{
+                                // Gecikme gününü hesapla
+                                TimeSpan lateDays = DateTime.Now.Date - loan.DueDate.Date; // Sadece tarih kısımlarını karşılaştır
+                                                                                           <span class="badge bg-danger">@lateDays.Days gün gecikmiş</span>
+                            }
+                        </td>
+                        <td>
+                            @* İade etme ve üye detaylarına gitme linkleri *@
+                            <a asp-controller="Loans" asp-action="Return" asp-route-id="@loan.Id" class="btn btn-success btn-sm"
+                               onclick="return confirm('Bu kitabı iade etmek istediğinize emin misiniz?');">
+                                <i class="fas fa-undo-alt"></i> İade Et
+                            </a>
+                            <a asp-controller="Members" asp-action="Details" asp-route-id="@loan.MemberId" class="btn btn-info btn-sm ms-1">
+                                <i class="fas fa-user"></i> Üye Detayı
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-success text-center" role="alert">
+            Harika! Şu anda gecikmiş hiçbir kitap bulunmamaktadır.
+        </div>
+    }
+
+    <div class="mt-4 text-center">
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Ödünç Kitap Listesine Geri Dön</a>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        /* Genel tablo ve rozet stilleri */
+        .table-hover tbody tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .badge.bg-danger {
+            background-color: #dc3545 !important;
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+}

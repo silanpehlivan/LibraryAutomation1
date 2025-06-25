@@ -1,0 +1,212 @@
+﻿@model LibraryAutomation1.Models.Book
+
+@{
+    ViewData["Title"] = "Yeni Kitap Ekle";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-plus"></i> Yeni Kitap Ekle
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Create" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="row">
+                            <!-- Sol Kolon -->
+                            <div class="col-md-6">
+                                <!-- Temel Bilgiler -->
+                                <div class="form-group">
+                                    <label asp-for="Title" class="control-label">Kitap Adı *</label>
+                                    <input asp-for="Title" class="form-control" placeholder="Kitap adını giriniz" />
+                                    <span asp-validation-for="Title" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Author" class="control-label">Yazar *</label>
+                                    <input asp-for="Author" class="form-control" placeholder="Yazar adını giriniz" />
+                                    <span asp-validation-for="Author" class="text-danger"></span>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="PublicationYear" class="control-label">Yayın Yılı *</label>
+                                            <input asp-for="PublicationYear" class="form-control" type="number" min="1000" max="2100" />
+                                            <span asp-validation-for="PublicationYear" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="PageCount" class="control-label">Sayfa Sayısı</label>
+                                            <input asp-for="PageCount" class="form-control" type="number" min="1" />
+                                            <span asp-validation-for="PageCount" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="Publisher" class="control-label">Yayınevi</label>
+                                    <input asp-for="Publisher" class="form-control" placeholder="Yayınevi adını giriniz" />
+                                    <span asp-validation-for="Publisher" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="ISBN" class="control-label">ISBN</label>
+                                    <input asp-for="ISBN" class="form-control" placeholder="ISBN numarasını giriniz" />
+                                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <!-- Sağ Kolon -->
+                            <div class="col-md-6">
+                                <!-- Kategori ve Sınıflandırma -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Genre" class="control-label">Tür</label>
+                                            <select asp-for="Genre" class="form-control">
+                                                <option value="">Tür seçiniz</option>
+                                                <option value="Roman">Roman</option>
+                                                <option value="Hikaye">Hikaye</option>
+                                                <option value="Şiir">Şiir</option>
+                                                <option value="Deneme">Deneme</option>
+                                                <option value="Biyografi">Biyografi</option>
+                                                <option value="Tarih">Tarih</option>
+                                                <option value="Felsefe">Felsefe</option>
+                                                <option value="Bilim">Bilim</option>
+                                                <option value="Teknoloji">Teknoloji</option>
+                                                <option value="Sanat">Sanat</option>
+                                                <option value="Spor">Spor</option>
+                                                <option value="Sağlık">Sağlık</option>
+                                                <option value="Çocuk">Çocuk</option>
+                                                <option value="Gençlik">Gençlik</option>
+                                                <option value="Bilim Kurgu">Bilim Kurgu</option>
+                                                <option value="Fantastik">Fantastik</option>
+                                                <option value="Polisiye">Polisiye</option>
+                                                <option value="Macera">Macera</option>
+                                                <option value="Romantik">Romantik</option>
+                                                <option value="Korku">Korku</option>
+                                            </select>
+                                            <span asp-validation-for="Genre" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="Category" class="control-label">Kategori</label>
+                                            <select asp-for="Category" class="form-control">
+                                                <option value="">Kategori seçiniz</option>
+                                                <option value="Edebiyat">Edebiyat</option>
+                                                <option value="Bilim">Bilim</option>
+                                                <option value="Sanat">Sanat</option>
+                                                <option value="Tarih">Tarih</option>
+                                                <option value="Felsefe">Felsefe</option>
+                                                <option value="Din">Din</option>
+                                                <option value="Çocuk">Çocuk</option>
+                                                <option value="Eğitim">Eğitim</option>
+                                                <option value="Sağlık">Sağlık</option>
+                                                <option value="Spor">Spor</option>
+                                                <option value="Hobi">Hobi</option>
+                                                <option value="Referans">Referans</option>
+                                            </select>
+                                            <span asp-validation-for="Category" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="ShelfNumber" class="control-label">Raf Numarası</label>
+                                    <input asp-for="ShelfNumber" class="form-control" placeholder="Örn: A-001, B-015" />
+                                    <span asp-validation-for="ShelfNumber" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label asp-for="CoverImageUrl" class="control-label">Kapak Resmi URL</label>
+                                    <input asp-for="CoverImageUrl" class="form-control" placeholder="Kapak resmi URL'sini giriniz" />
+                                    <span asp-validation-for="CoverImageUrl" class="text-danger"></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Kapak Yükle (.jpg)</label>
+                                    <input asp-for="ImageFile" type="file" class="form-control" accept=".jpg,.jpeg,.png" />
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" asp-for="IsAvailable" />
+                                        <label class="form-check-label" asp-for="IsAvailable">
+                                            Kitap şu anda müsait
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Açıklama -->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label">Açıklama</label>
+                                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Kitap hakkında kısa açıklama yazınız"></textarea>
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Butonlar -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save"></i> Kitabı Kaydet
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left"></i> Geri Dön
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        // Form validation ve UI geliştirmeleri
+        $(document).ready(function() {
+            // ISBN formatı kontrolü
+            $('#ISBN').on('input', function() {
+                var isbn = $(this).val().replace(/[^0-9X]/gi, '');
+                if (isbn.length === 10 || isbn.length === 13) {
+                    $(this).removeClass('is-invalid').addClass('is-valid');
+                } else if (isbn.length > 0) {
+                    $(this).removeClass('is-valid').addClass('is-invalid');
+                } else {
+                    $(this).removeClass('is-valid is-invalid');
+                }
+            });
+
+            // Kapak resmi URL önizleme
+            $('#CoverImageUrl').on('input', function() {
+                var url = $(this).val();
+                if (url) {
+                    // Basit URL validasyonu
+                    if (url.match(/\.(jpeg|jpg|gif|png)$/)) {
+                        $(this).removeClass('is-invalid').addClass('is-valid');
+                    } else {
+                        $(this).removeClass('is-valid').addClass('is-invalid');
+                    }
+                } else {
+                    $(this).removeClass('is-valid is-invalid');
+                }
+            });
+        });
+    </script>
+}

@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Kütüphane Yönetim Sistemi</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                    <i class="fas fa-book-open"></i> Kütüphane Sistemi
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index", "Home")">
+                                <i class="fas fa-home"></i> Ana Sayfa
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-book"></i> Kitaplar
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Books")">
+                                        <i class="fas fa-list"></i> Kitap Listesi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Create", "Books")">
+                                        <i class="fas fa-plus"></i> Yeni Kitap Ekle
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("TopRated", "Books")">
+                                        <i class="fas fa-star"></i> En Yüksek Puanlılar
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Search", "Home")">
+                                        <i class="fas fa-search"></i> Kitap Ara
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-users"></i> Üyeler
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Members")">
+                                        <i class="fas fa-list"></i> Üye Listesi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Create", "Members")">
+                                        <i class="fas fa-user-plus"></i> Yeni Üye Ekle
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-hand-holding"></i> Ödünç İşlemleri
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Loans")">
+                                        <i class="fas fa-list"></i> Ödünç Listesi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Create", "Loans")">
+                                        <i class="fas fa-plus"></i> Kitap Ödünç Ver
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("OverdueBooks", "Loans")">
+                                        <i class="fas fa-exclamation-triangle"></i> Gecikmeli Kitaplar
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-chart-bar"></i> Raporlar
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("Index", "Reports")">
+                                        <i class="fas fa-dashboard"></i> Genel İstatistikler
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("MostBorrowedBooks", "Reports")">
+                                        <i class="fas fa-trophy"></i> En Çok Ödünç Alınan
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("HighestRatedBooks", "Reports")">
+                                        <i class="fas fa-star"></i> En Yüksek Puanlı
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("MostActiveReaders", "Reports")">
+                                        <i class="fas fa-user-graduate"></i> En Aktif Okuyucular
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("OverdueReport", "Reports")">
+                                        <i class="fas fa-exclamation-triangle"></i> Gecikme Raporu
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="@Url.Action("RatingStats", "Reports")">
+                                        <i class="fas fa-star-half-alt"></i> Puanlama İstatistikleri
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!-- Kullanıcı Menüsü -->
+                    <ul class="navbar-nav">
+                        @{
+                            var currentMemberName = Context.Session.GetString("MemberName");
+                            var currentMemberRole = Context.Session.GetString("MemberRole");
+                        }
+
+                        @if (!string.IsNullOrEmpty(currentMemberName))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user"></i> @currentMemberName
+                                    @if (!string.IsNullOrEmpty(currentMemberRole))
+                                    {
+                                        <span class="badge bg-secondary">@currentMemberRole</span>
+                                    }
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li>
+                                        <a class="dropdown-item" href="@Url.Action("Details", "Members", new { id = Context.Session.GetString("MemberId") })">
+                                            <i class="fas fa-user"></i> Profilim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="@Url.Action("ReadingHistory", "Members", new { id = Context.Session.GetString("MemberId") })">
+                                            <i class="fas fa-history"></i> Okuma Geçmişim
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="@Url.Action("MemberRatings", "Members", new { id = Context.Session.GetString("MemberId") })">
+                                            <i class="fas fa-star"></i> Puanlarım
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li>
+                                        <a class="dropdown-item" href="@Url.Action("Logout", "Members")">
+                                            <i class="fas fa-sign-out-alt"></i> Çıkış Yap
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Login", "Members")">
+                                    <i class="fas fa-sign-in-alt"></i> Giriş Yap
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-fluid mt-3">
+        <!-- Alert Messages -->
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <i class="fas fa-check-circle"></i> @TempData["Success"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-circle"></i> @TempData["Error"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        @if (TempData["Warning"] != null)
+        {
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <i class="fas fa-exclamation-triangle"></i> @TempData["Warning"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        @if (TempData["Info"] != null)
+        {
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <i class="fas fa-info-circle"></i> @TempData["Info"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        @RenderBody()
+    </main>
+
+    <footer class="bg-dark text-light mt-5 py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5><i class="fas fa-book-open"></i> Kütüphane Sistemi</h5>
+                    <p class="text-muted">Modern kütüphane yönetim sistemi ile kitaplarınızı, üyelerinizi ve ödünç işlemlerinizi kolayca yönetin.</p>
+                </div>
+                <div class="col-md-4">
+                    <h6>Hızlı Linkler</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="@Url.Action("Index", "Books")" class="text-light">Kitaplar</a></li>
+                        <li><a href="@Url.Action("Index", "Members")" class="text-light">Üyeler</a></li>
+                        <li><a href="@Url.Action("Index", "Loans")" class="text-light">Ödünç İşlemleri</a></li>
+                        <li><a href="@Url.Action("Index", "Reports")" class="text-light">Raporlar</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h6>İletişim</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-map-marker-alt"></i> Atatürk Caddesi No:123, Merkez/İstanbul</li>
+                        <li><i class="fas fa-phone"></i> +90 212 555 0123</li>
+                        <li><i class="fas fa-envelope"></i> info@merkezkutuphane.gov.tr</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">&copy; @DateTime.Now.Year Kütüphane Yönetim Sistemi. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <small class="text-muted">Versiyon 1.0.0</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
