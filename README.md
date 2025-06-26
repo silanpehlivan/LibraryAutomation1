@@ -23,18 +23,6 @@ Bu proje, Web Tabanlı Programlama dersi kapsamında geliştirilen kapsamlı bir
 - Yorum ve puanlama sistemi (1–5 arası)
 
 
-## 👥 Ekip Üyeleri ve Görev Dağılımı
-
-| İsim               | Görevler                                                                                   |
-|--------------------|--------------------------------------------------------------------------------------------|
-| Şilan Pehlivan     | Kitap Yönetimi (CRUD + Puanlama), Kitap Detay Sayfası, Arama, Filtreleme, Raporlama         |
-| Emira Meryem Erkan | Üye Yönetimi, Üye Kayıt/Giriş, Rol Bazlı Yönetim, Üye Kitap Geçmişi, Raporlama              |
-| Sevgi Golgiyaz     | Giriş ve Yetkilendirme Sistemi, Parola Güvenliği, Oturum Yönetimi, Rol Bazlı Yetki Kontrolü |
-| Merve Barışık      | Ödünç Alma ve İade Sistemi, Teslim Tarihi Yönetimi, Gecikme Hesaplama, Ödünç Geçmişi       |
-
-Not: Görevler örtüşmekte olup, tüm ekip üyeleri proje modüllerine katkıda bulunmuştur.
-
-
 ## 📈 Veritabanı ve Mimari
 
 - Proje MVC mimarisi ile yapılandırılmıştır.  
