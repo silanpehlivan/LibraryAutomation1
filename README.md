@@ -1,10 +1,8 @@
 # Kütüphane Otomasyon Sistemi
-
-Bu proje, Web Tabanlı Programlama dersi kapsamında geliştirilen kapsamlı bir kütüphane otomasyon sistemidir. Modern web teknolojileri kullanılarak tasarlanmış olup, kullanıcıların kitapları yönetmelerine, ödünç alma/iade işlemlerini gerçekleştirmelerine ve üye bilgilerini takip etmelerine olanak tanımaktadır. Sistem, kütüphane operasyonlarını dijitalleştirerek verimliliği artırmayı ve hem yöneticiler hem de üyeler için daha iyi bir deneyim sağlamayı amaçlamaktadır.
+Bu proje, Web Tabanlı Programlama dersi kapsamında ortak olarak geliştirilen bir kütüphane otomasyon sistemidir. Modern web teknolojileri kullanılarak tasarlanmış olup, kullanıcıların kitapları yönetmelerine, ödünç alma/iade işlemlerini gerçekleştirmelerine ve üye bilgilerini takip etmelerine olanak tanımaktadır. Sistem, kütüphane operasyonlarını dijitalleştirerek verimliliği artırmayı ve hem yöneticiler hem de üyeler için daha iyi bir deneyim sağlamayı amaçlamaktadır.
 
 
 ## 🚀 Proje Teknolojileri
-
 - ASP.NET Core 8.0 (C#)
 - Entity Framework Core 8.0
 - SQLite Veritabanı
@@ -13,7 +11,6 @@ Bu proje, Web Tabanlı Programlama dersi kapsamında geliştirilen kapsamlı bir
 
 
 ## 📋 Proje Özellikleri
-
 - Kitap yönetimi (CRUD, puanlama, filtreleme, arama)
 - Üye yönetimi (kayıt, giriş, rol bazlı yetkilendirme)
 - Ödünç alma ve iade işlemleri
@@ -24,9 +21,6 @@ Bu proje, Web Tabanlı Programlama dersi kapsamında geliştirilen kapsamlı bir
 
 
 ## 📈 Veritabanı ve Mimari
-
 - Proje MVC mimarisi ile yapılandırılmıştır.  
 - Entity Framework Core 8.0 kullanılarak SQLite veritabanı yönetilmektedir.  
 - Modüller arası ilişkiler ve veritabanı şeması projede uygun şekilde tasarlanmıştır.
-
-Bu proje Web Tabanlı Programlama dersi kapsamında geliştirilmiştir.
