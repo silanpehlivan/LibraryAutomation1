@@ -143,6 +143,12 @@ LibraryAutomation1-master/
 
 Bu proje **MIT License** ile lisanslanmıştır. Detaylı bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
 
-## 👩‍💻 Geliştirici
+## 👩‍💻 Geliştiriciler
 
-Şilan Pehlivan
+Bu proje, **Web Tabanlı Programlama** dersi kapsamında aşağıda isimleri yer alan geliştiriciler tarafından hazırlanmıştır:
+
+*   Şilan Pehlivan
+*   Sevgi Golgiyaz
+*   Emira Meryem Erkan
+*   Merve Barışık
+
