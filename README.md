@@ -1,188 +1,143 @@
 📚 Kütüphane Otomasyon Sistemi (Library Management System)
 
-Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, kütüphane operasyonlarını dijitalleştirirmeyi amaçlayan kapsamlı bir ASP.NET Core 8.0 MVC uygulamasıdır. Kitap takibinden üye yönetimine, ödünç alma süreçlerinden detaylı istatistiksel raporlamalara kadar bir kütüphanenin ihtiyaç duyabileceği tüm temel fonksiyonları bünyesinde barındırır.
+Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, kütüphane operasyonlarını dijitalleştirmeyi amaçlayan kapsamlı bir **ASP.NET Core 8.0 MVC** uygulamasıdır. Kitap yönetiminden üye işlemlerine, ödünç alma süreçlerinden raporlamaya kadar bir kütüphanede ihtiyaç duyulan tüm temel işlevleri kapsamaktadır.
 
-
-
+---
 
 🎯 Projenin Amacı
 
-Bu projenin temel amacı, kütüphane yönetim süreçlerini optimize etmek ve kullanıcı dostu bir arayüz ile hem personel hem de üyeler için verimli bir deneyim sunmaktır. Bu kapsamda:
+Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek daha hızlı, güvenli ve verimli bir sistem oluşturmaktır. Bu kapsamda:
 
-•
-Kitap envanterinin dijital ortamda merkezi olarak yönetilmesi
+- Kitap envanterinin merkezi olarak yönetilmesi  
+- Üye kayıt ve yetkilendirme işlemlerinin düzenlenmesi (Admin, Personel, Üye)  
+- Ödünç alma ve iade süreçlerinin otomatik hale getirilmesi  
+- Gecikmiş kitapların takip edilmesi  
+- İstatistiksel raporların oluşturulması  
 
-•
-Üye kayıtlarının ve yetkilendirme süreçlerinin (Admin, Personel, Üye) takibi
-
-•
-Ödünç alma ve iade süreçlerinin otomatize edilmesi
-
-•
-Geciken kitapların ve popüler içeriklerin raporlanması
-
-•
-Modern yazılım mimarisi ve veritabanı yönetim prensiplerinin uygulanması
-
-
-
+---
 
 📚 Temel Özellikler
 
-📖 Kitap Yönetimi
+## 📖 Kitap Yönetimi
 
-•
-Yeni kitap ekleme, güncelleme ve silme işlemleri (CRUD).
+- Kitap ekleme, güncelleme ve silme (CRUD işlemleri)  
+- Kitap kapak görseli yükleme  
+- Kitapların müsaitlik durumunun takip edilmesi  
+- Tür, yazar ve yayınevine göre filtreleme  
 
-•
-Kitap kapak resmi yükleme desteği ve resim yönetimi.
+---
 
-•
-Kitapların müsaitlik durumunun gerçek zamanlı takibi.
+## 👥 Üye ve Yetki Yönetimi
 
-•
-Tür, yazar ve yayınevi bazlı detaylı filtreleme ve arama.
+- Rol bazlı yapı: Admin, Personel, Üye  
+- Güvenli kullanıcı giriş sistemi  
+- Şifre hashleme ile güvenlik  
+- Üye profil ve okuma geçmişi takibi  
 
-👥 Üye ve Yetki Yönetimi
+---
 
-•
-Çoklu rol desteği: Admin, Personel ve Üye.
+## 🔄 Ödünç Alma Sistemi
 
-•
-Güvenli kullanıcı doğrulama ve parola hashleme sistemleri.
+- Kitap ödünç alma ve iade işlemleri  
+- Teslim tarihi takibi  
+- Gecikme kontrol mekanizması  
+- Kullanıcı bazlı işlem geçmişi  
 
-•
-Üye profil yönetimi ve bireysel okuma geçmişi takibi.
+---
 
-🔄 Ödünç Alma ve Etkileşim
+## 📊 Raporlama
 
-•
-Kitap ödünç verme ve iade alma süreçlerinin yönetimi.
+- En çok okunan kitaplar  
+- En aktif üyeler  
+- Geciken kitap listesi  
+- Kategori bazlı analizler  
+- Popüler içerik istatistikleri  
 
-•
-Teslim tarihi takibi ve gecikme durumlarının belirlenmesi.
-
-•
-Kitaplar için 1-5 arası puanlama ve yorum yapma sistemi.
-
-📊 Gelişmiş Raporlama
-
-•
-En çok okunan kitaplar ve en aktif üyeler analizi.
-
-•
-Geciken kitaplar raporu ve kategori bazlı istatistikler.
-
-•
-Puanlama verileri üzerinden popüler içerik takibi.
-
-
-
+---
 
 ⚙️ Teknik Detaylar
 
-Özellik
-Açıklama
-Dil
-C#
-Framework
-ASP.NET Core 8.0 MVC
-Veritabanı
-SQLite / MS SQL Server (EF Core 8.0)
-Frontend
-HTML5, CSS3 (Bootstrap 5), JavaScript (jQuery)
-Güvenlik
-Password Hashing, Role-Based Authorization
-Mimari
-Model-View-Controller (MVC)
+| Özellik | Açıklama |
+|----------|----------|
+| Dil | C# |
+| Framework | ASP.NET Core 8.0 MVC |
+| Veritabanı | SQLite / MS SQL Server (EF Core 8.0) |
+| Frontend | HTML5, CSS3 (Bootstrap 5), JavaScript (jQuery) |
+| Güvenlik | Password Hashing, Role-Based Authorization |
+| Mimari | MVC (Model-View-Controller) |
 
-
-
-
-
-
+---
 
 💻 Implementasyon Detayları
 
-Proje, Entity Framework Core 8.0'ın modern yaklaşımları kullanılarak geliştirilmiştir. Veritabanı şeması, C# sınıfları üzerinden yönetilmekte ve ilişkisel veri modeli başarıyla uygulanmaktadır.
+Proje, Entity Framework Core 8.0 kullanılarak geliştirilmiş modern bir veri mimarisine sahiptir. Tüm veritabanı işlemleri C# modelleri üzerinden yönetilmektedir.
 
-C# Kodu (Örnek - Kitap Modeli):
+### 📌 Kitap Modeli
 
-C#
-
-
+```csharp
 public class Book
 {
     public int Id { get; set; }
-    
+
     [Required(ErrorMessage = "Kitap adı zorunludur.")]
     public string Title { get; set; }
-    
+
     public string Author { get; set; }
-    
+
     public bool IsAvailable { get; set; } = true;
-    
-    // İlişkisel veriler (Navigasyon Özellikleri)
+
+    // İlişkisel yapılar
     public virtual ICollection<Loan> Loans { get; set; }
     public virtual ICollection<BookRating> BookRatings { get; set; }
 }
+```
 
+---
 
+Uygulama, `Program.cs` içerisinde yapılandırılan servis mimarisi ile çalışır ve Session yönetimi sayesinde kullanıcı deneyimi optimize edilmiştir.
 
-Uygulama, Program.cs içerisinde yapılandırılan gelişmiş bir servis mimarisine sahiptir ve oturum (Session) yönetimi ile kullanıcı deneyimi en üst düzeye çıkarılmıştır.
-
-
-
+---
 
 🚀 Kurulum ve Çalıştırma
 
-1.
-Projeyi indirin ve bir klasöre çıkarın.
+1. Projeyi indirip klasöre çıkarın  
+2. `LibraryAutomation1.sln` dosyasını Visual Studio 2022 ile açın  
+3. Package Manager Console üzerinden:
 
-2.
-LibraryAutomation1.sln dosyasını Visual Studio 2022 ile açın.
+```bash
+Update-Database
+```
 
-3.
-Package Manager Console üzerinden Update-Database komutunu çalıştırın.
+komutunu çalıştırın  
 
-4.
-Gerekli bağımlılıkların (NuGet paketleri) yüklendiğinden emin olun.
+4. Gerekli NuGet paketlerinin yüklü olduğundan emin olun  
+5. F5 ile projeyi başlatın  
 
-5.
-F5 tuşuna basarak projeyi başlatın ve tarayıcı üzerinden erişim sağlayın.
-
-
-
+---
 
 📂 Proje Yapısı
 
-Plain Text
-
-
+```
 LibraryAutomation1-master/
 ├── LibraryAutomation1/
-│   ├── Controllers/      # İş mantığının yönetildiği kontrolcüler
-│   ├── Models/           # Veritabanı nesneleri ve veri modelleri
-│   ├── Views/            # Kullanıcı arayüzü (Razor Pages) dosyaları
-│   ├── Data/             # DbContext ve veritabanı yapılandırması
-│   ├── wwwroot/          # CSS, JS, Resimler ve kütüphaneler
-│   └── Program.cs        # Uygulama başlangıç ve servis yapılandırması
+│   ├── Controllers/   # İş mantığı (Controller katmanı)
+│   ├── Models/        # Veritabanı modelleri
+│   ├── Views/         # Razor UI dosyaları
+│   ├── Data/          # DbContext ve veritabanı yapılandırması
+│   ├── wwwroot/       # Statik dosyalar (CSS, JS, görseller)
+│   └── Program.cs     # Uygulama başlangıç noktası
 ├── LibraryAutomation1.sln
 └── LICENSE
+```
 
-
-
-
-
+---
 
 📜 Lisans
 
 Bu proje MIT Lisansı kapsamında lisanslanmıştır. Detaylar LICENSE dosyasında yer almaktadır.
 
-
-
+---
 
 👩‍💻 Yazar
 
 Şilan Pehlivan
-
