@@ -148,7 +148,7 @@ Bu proje **MIT License** ile lisanslanmıştır. Detaylı bilgi için `LICENSE` 
 Bu proje, **Web Tabanlı Programlama** dersi kapsamında aşağıda isimleri yer alan geliştiriciler tarafından hazırlanmıştır:
 
 *   Şilan Pehlivan
-*   Sevgi Golgiyaz
 *   Merve Barışık
+*   Sevgi Golgiyaz
 *   Emira Meryem Erkan
 
