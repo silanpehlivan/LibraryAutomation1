@@ -1,10 +1,12 @@
 📚 Kütüphane Otomasyon Sistemi (Library Management System)
+---
 
 Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, kütüphane operasyonlarını dijitalleştirmeyi amaçlayan kapsamlı bir **ASP.NET Core 8.0 MVC** uygulamasıdır. Kitap yönetiminden üye işlemlerine, ödünç alma süreçlerinden raporlamaya kadar bir kütüphanede ihtiyaç duyulan tüm temel işlevleri kapsamaktadır.
 
 ---
 
 🎯 Projenin Amacı
+---
 
 Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek daha hızlı, güvenli ve verimli bir sistem oluşturmaktır. Bu kapsamda:
 
@@ -17,6 +19,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 ---
 
 📚 Temel Özellikler
+---
 
 ## 📖 Kitap Yönetimi
 
@@ -56,6 +59,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 ---
 
 ⚙️ Teknik Detaylar
+---
 
 | Özellik | Açıklama |
 |----------|----------|
@@ -69,6 +73,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 ---
 
 💻 Implementasyon Detayları
+---
 
 Proje, Entity Framework Core 8.0 kullanılarak geliştirilmiş modern bir veri mimarisine sahiptir. Tüm veritabanı işlemleri C# modelleri üzerinden yönetilmektedir.
 
@@ -99,6 +104,7 @@ Uygulama, `Program.cs` içerisinde yapılandırılan servis mimarisi ile çalı�
 ---
 
 🚀 Kurulum ve Çalıştırma
+---
 
 1. Projeyi indirip klasöre çıkarın  
 2. `LibraryAutomation1.sln` dosyasını Visual Studio 2022 ile açın  
@@ -116,6 +122,7 @@ komutunu çalıştırın
 ---
 
 📂 Proje Yapısı
+---
 
 ```
 LibraryAutomation1-master/
@@ -132,12 +139,10 @@ LibraryAutomation1-master/
 
 ---
 
-📜 Lisans
+## 📜 Lisans
 
-Bu proje MIT Lisansı kapsamında lisanslanmıştır. Detaylar LICENSE dosyasında yer almaktadır.
+Bu proje **MIT License** ile lisanslanmıştır. Detaylı bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
 
----
-
-👩‍💻 Yazar
+## 👩‍💻 Geliştirici
 
 Şilan Pehlivan
