@@ -149,6 +149,6 @@ Bu proje, **Web Tabanlı Programlama** dersi kapsamında aşağıda isimleri yer
 
 *   Şilan Pehlivan
 *   Sevgi Golgiyaz
-*   Emira Meryem Erkan
 *   Merve Barışık
+*   Emira Meryem Erkan
 
