@@ -1,11 +1,38 @@
-📚 Kütüphane Otomasyon Sistemi (Library Management System)
+<div align="center">
+
+# Kütüphane Otomasyonu
+
+**Kitap, üye ve ödünç yönetimi**
+
+![C#](https://img.shields.io/badge/C%23-2563eb?style=flat-square)
+![ASP.NET Core 8 MVC](https://img.shields.io/badge/ASP.NET%20Core%208%20MVC-0891b2?style=flat-square)
+![EF Core](https://img.shields.io/badge/EF%20Core-7c3aed?style=flat-square)
+[![MIT License](https://img.shields.io/badge/License-MIT-16a34a?style=flat-square)](LICENSE)
+
+Kitap envanteri, üye kayıtları ve ödünç/iade süreçlerini ortak bir web arayüzünde yöneten kütüphane uygulaması.
+
+</div>
+
 ---
+
+## Öne Çıkanlar
+
+- Kitap, yazar ve kategori yönetimi
+- Admin, personel ve üye rolleri
+- Teslim tarihi, gecikme takibi ve raporlama
+
+## Teknolojiler
+
+C# · ASP.NET Core 8 MVC · EF Core
+
+<details>
+<summary><strong>Kurulum, kullanım ve teknik ayrıntılar</strong></summary>
 
 Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, kütüphane operasyonlarını dijitalleştirmeyi amaçlayan kapsamlı bir **ASP.NET Core 8.0 MVC** uygulamasıdır. Kitap yönetiminden üye işlemlerine, ödünç alma süreçlerinden raporlamaya kadar bir kütüphanede ihtiyaç duyulan tüm temel işlevleri kapsamaktadır.
 
 ---
 
-🎯 Projenin Amacı
+ Projenin Amacı
 ---
 
 Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek daha hızlı, güvenli ve verimli bir sistem oluşturmaktır. Bu kapsamda:
@@ -18,10 +45,10 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 
 ---
 
-📚 Temel Özellikler
+ Temel Özellikler
 ---
 
-## 📖 Kitap Yönetimi
+## Kitap Yönetimi
 
 - Kitap ekleme, güncelleme ve silme (CRUD işlemleri)  
 - Kitap kapak görseli yükleme  
@@ -30,7 +57,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 
 ---
 
-## 👥 Üye ve Yetki Yönetimi
+## Üye ve Yetki Yönetimi
 
 - Rol bazlı yapı: Admin, Personel, Üye  
 - Güvenli kullanıcı giriş sistemi  
@@ -39,7 +66,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 
 ---
 
-## 🔄 Ödünç Alma Sistemi
+## Ödünç Alma Sistemi
 
 - Kitap ödünç alma ve iade işlemleri  
 - Teslim tarihi takibi  
@@ -48,7 +75,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 
 ---
 
-## 📊 Raporlama
+## Raporlama
 
 - En çok okunan kitaplar  
 - En aktif üyeler  
@@ -58,7 +85,7 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 
 ---
 
-⚙️ Teknik Detaylar
+ Teknik Detaylar
 ---
 
 | Özellik | Açıklama |
@@ -72,12 +99,12 @@ Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek 
 
 ---
 
-💻 Implementasyon Detayları
+ Implementasyon Detayları
 ---
 
 Proje, Entity Framework Core 8.0 kullanılarak geliştirilmiş modern bir veri mimarisine sahiptir. Tüm veritabanı işlemleri C# modelleri üzerinden yönetilmektedir.
 
-### 📌 Kitap Modeli
+### Kitap Modeli
 
 ```csharp
 public class Book
@@ -103,7 +130,7 @@ Uygulama, `Program.cs` içerisinde yapılandırılan servis mimarisi ile çalı�
 
 ---
 
-🚀 Kurulum ve Çalıştırma
+ Kurulum ve Çalıştırma
 ---
 
 1. Projeyi indirip klasöre çıkarın  
@@ -121,7 +148,7 @@ komutunu çalıştırın
 
 ---
 
-📂 Proje Yapısı
+ Proje Yapısı
 ---
 
 ```
@@ -139,16 +166,15 @@ LibraryAutomation1-master/
 
 ---
 
-## 📜 Lisans
 
-Bu proje **MIT License** ile lisanslanmıştır. Detaylı bilgi için `LICENSE` dosyasını inceleyebilirsiniz.
+</details>
 
-## 👩‍💻 Geliştiriciler
+---
 
-Bu proje, **Web Tabanlı Programlama** dersi kapsamında aşağıda isimleri yer alan geliştiriciler tarafından hazırlanmıştır:
+<div align="center">
 
-*   Şilan PEHLİVAN
-*   Merve BARIŞIK
-*   Sevgi GOLGİYAZ
-*   Emira Meryem ERKAN
+**© 2024 Şilan PEHLİVAN, Merve BARIŞIK, Sevgi GOLGİYAZ and Emira Meryem ERKAN**
 
+Bu proje MIT lisansı kapsamında sunulmaktadır. Kullanım ve dağıtım koşulları: [LICENSE](LICENSE).
+
+</div>
