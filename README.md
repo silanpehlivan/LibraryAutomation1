@@ -25,6 +25,28 @@ Kitap envanteri, üye kayıtları ve ödünç/iade süreçlerini ortak bir web a
 
 C# · ASP.NET Core 8 MVC · EF Core
 
+## Teknik yaklaşım
+
+Books, Members, Loans ve Reports controller’ları kütüphane işlemlerini ayırır. ApplicationDbContext SQL Server erişimini, session yapılandırması oturum verisini yönetir.
+
+```mermaid
+flowchart LR
+A[Razor arayüzü] --> B[MVC controller]
+B --> C[ApplicationDbContext]
+C --> D[SQL Server]
+```
+
+## Kodu incelemeye başlayın
+
+- [LibraryAutomation1/Controllers/BooksController.cs](LibraryAutomation1/Controllers/BooksController.cs)
+- [LibraryAutomation1/Controllers/HomeController.cs](LibraryAutomation1/Controllers/HomeController.cs)
+- [LibraryAutomation1/Controllers/LoansController.cs](LibraryAutomation1/Controllers/LoansController.cs)
+- [LibraryAutomation1/Controllers/MembersController.cs](LibraryAutomation1/Controllers/MembersController.cs)
+
+## Kapsam ve sınırlar
+
+Üretim kullanımı öncesinde rol kontrolleri ve veri erişimi ayrıca incelenmelidir; middleware yapılandırması tek başına tüm uç noktaların yetkilendirildiğini kanıtlamaz.
+
 <details>
 <summary><strong>Kurulum, kullanım ve teknik ayrıntılar</strong></summary>
 
