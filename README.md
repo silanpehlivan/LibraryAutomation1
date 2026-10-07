@@ -2,217 +2,31 @@
 
 # Kütüphane Otomasyonu
 
-### Kitaplar, üyeler ve ödünç işlemleri aynı yerde.
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=19&duration=3500&pause=2200&color=38bdf8&background=0D1117&center=true&vCenter=true&width=760&height=76&lines=Kitaplar%2C%20%C3%BCyeler%20ve%20%C3%B6d%C3%BCn%C3%A7%20i%C5%9Flemleri%20ayn%C4%B1%20yerde." alt="Kitaplar, üyeler ve ödünç işlemleri aynı yerde." width="760" />
 
-![C#](https://img.shields.io/badge/C%23-2563eb?style=for-the-badge)
-![ASP.NET Core 8 MVC](https://img.shields.io/badge/ASP.NET%20Core%208%20MVC-0891b2?style=for-the-badge)
-![EF Core](https://img.shields.io/badge/EF%20Core-7c3aed?style=for-the-badge)
-[![MIT](https://img.shields.io/badge/MIT-16a34a?style=for-the-badge)](LICENSE)
+<br />
+
+<img alt="C#" src="https://img.shields.io/badge/C%23-38bdf8?style=for-the-badge" />
+<img alt="ASP.NET Core 8 MVC" src="https://img.shields.io/badge/ASP.NET%20Core%208%20MVC-2563eb?style=for-the-badge" />
+<img alt="EF Core" src="https://img.shields.io/badge/EF%20Core-7c3aed?style=for-the-badge" />
+
+<br /><br />
 
 Kitap envanteri, üye kayıtları ve ödünç/iade süreçlerini ortak bir web arayüzünde yöneten kütüphane uygulaması.
 
-**Kitap, üye ve ödünç yönetimi**
+<br />
 
-[Projeyi keşfet](https://github.com/silanpehlivan/LibraryAutomation1/tree/master) · [Kurulum ve ayrıntılar](#projeyi-çalıştırmak-ve-incelemek)
+**Kitap ve üye yönetimi** &nbsp; · &nbsp; **Ödünç ve iade takibi** &nbsp; · &nbsp; **Raporlama ekranları**
+
+<br /><br />
+
+[![Projeyi keşfet](https://img.shields.io/badge/PROJEYİ_KEŞFET-2563eb?style=for-the-badge)](https://github.com/silanpehlivan/LibraryAutomation1/tree/master)
+[![Kurulum](https://img.shields.io/badge/KURULUM_&_TEKNİK_NOTLAR-334155?style=for-the-badge)](PROJECT_GUIDE.md)
 
 </div>
 
 ---
 
-## İçeride neler var?
-
-- **01** · Kitap ve üye kayıtları
-- **02** · Ödünç ve iade takibi
-- **03** · Kütüphane raporları
-
-## Projeyi çalıştırmak ve incelemek
-
-<details>
-<summary><strong>Kurulum, kod yapısı ve teknik notları aç</strong></summary>
-
-## Öne Çıkanlar
-
-- Kitap, yazar ve kategori yönetimi
-- Admin, personel ve üye rolleri
-- Teslim tarihi, gecikme takibi ve raporlama
-
-## Teknolojiler
-
-C# · ASP.NET Core 8 MVC · EF Core
-
-### Teknik yaklaşım
-
-Books, Members, Loans ve Reports controller’ları kütüphane işlemlerini ayırır. ApplicationDbContext SQL Server erişimini, session yapılandırması oturum verisini yönetir.
-
-```mermaid
-flowchart LR
-A[Razor arayüzü] --> B[MVC controller]
-B --> C[ApplicationDbContext]
-C --> D[SQL Server]
-```
-
-### Kodu incelemeye başlayın
-
-- [LibraryAutomation1/Controllers/BooksController.cs](LibraryAutomation1/Controllers/BooksController.cs)
-- [LibraryAutomation1/Controllers/HomeController.cs](LibraryAutomation1/Controllers/HomeController.cs)
-- [LibraryAutomation1/Controllers/LoansController.cs](LibraryAutomation1/Controllers/LoansController.cs)
-- [LibraryAutomation1/Controllers/MembersController.cs](LibraryAutomation1/Controllers/MembersController.cs)
-
-### Kapsam ve sınırlar
-
-Üretim kullanımı öncesinde rol kontrolleri ve veri erişimi ayrıca incelenmelidir; middleware yapılandırması tek başına tüm uç noktaların yetkilendirildiğini kanıtlamaz.
-
-
-
-Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, kütüphane operasyonlarını dijitalleştirmeyi amaçlayan kapsamlı bir **ASP.NET Core 8.0 MVC** uygulamasıdır. Kitap yönetiminden üye işlemlerine, ödünç alma süreçlerinden raporlamaya kadar bir kütüphanede ihtiyaç duyulan tüm temel işlevleri kapsamaktadır.
-
----
-
- Projenin Amacı
----
-
-Bu projenin temel amacı, kütüphane yönetim süreçlerini dijitalleştirerek daha hızlı, güvenli ve verimli bir sistem oluşturmaktır. Bu kapsamda:
-
-- Kitap envanterinin merkezi olarak yönetilmesi  
-- Üye kayıt ve yetkilendirme işlemlerinin düzenlenmesi (Admin, Personel, Üye)  
-- Ödünç alma ve iade süreçlerinin otomatik hale getirilmesi  
-- Gecikmiş kitapların takip edilmesi  
-- İstatistiksel raporların oluşturulması  
-
----
-
- Temel Özellikler
----
-
-## Kitap Yönetimi
-
-- Kitap ekleme, güncelleme ve silme (CRUD işlemleri)  
-- Kitap kapak görseli yükleme  
-- Kitapların müsaitlik durumunun takip edilmesi  
-- Tür, yazar ve yayınevine göre filtreleme  
-
----
-
-## Üye ve Yetki Yönetimi
-
-- Rol bazlı yapı: Admin, Personel, Üye  
-- Güvenli kullanıcı giriş sistemi  
-- Şifre hashleme ile güvenlik  
-- Üye profil ve okuma geçmişi takibi  
-
----
-
-## Ödünç Alma Sistemi
-
-- Kitap ödünç alma ve iade işlemleri  
-- Teslim tarihi takibi  
-- Gecikme kontrol mekanizması  
-- Kullanıcı bazlı işlem geçmişi  
-
----
-
-## Raporlama
-
-- En çok okunan kitaplar  
-- En aktif üyeler  
-- Geciken kitap listesi  
-- Kategori bazlı analizler  
-- Popüler içerik istatistikleri  
-
----
-
- Teknik Detaylar
----
-
-| Özellik | Açıklama |
-|----------|----------|
-| Dil | C# |
-| Framework | ASP.NET Core 8.0 MVC |
-| Veritabanı | SQLite / MS SQL Server (EF Core 8.0) |
-| Frontend | HTML5, CSS3 (Bootstrap 5), JavaScript (jQuery) |
-| Güvenlik | Password Hashing, Role-Based Authorization |
-| Mimari | MVC (Model-View-Controller) |
-
----
-
- Implementasyon Detayları
----
-
-Proje, Entity Framework Core 8.0 kullanılarak geliştirilmiş modern bir veri mimarisine sahiptir. Tüm veritabanı işlemleri C# modelleri üzerinden yönetilmektedir.
-
-### Kitap Modeli
-
-```csharp
-public class Book
-{
-    public int Id { get; set; }
-
-    [Required(ErrorMessage = "Kitap adı zorunludur.")]
-    public string Title { get; set; }
-
-    public string Author { get; set; }
-
-    public bool IsAvailable { get; set; } = true;
-
-    // İlişkisel yapılar
-    public virtual ICollection<Loan> Loans { get; set; }
-    public virtual ICollection<BookRating> BookRatings { get; set; }
-}
-```
-
----
-
-Uygulama, `Program.cs` içerisinde yapılandırılan servis mimarisi ile çalışır ve Session yönetimi sayesinde kullanıcı deneyimi optimize edilmiştir.
-
----
-
- Kurulum ve Çalıştırma
----
-
-1. Projeyi indirip klasöre çıkarın  
-2. `LibraryAutomation1.sln` dosyasını Visual Studio 2022 ile açın  
-3. Package Manager Console üzerinden:
-
-```bash
-Update-Database
-```
-
-komutunu çalıştırın  
-
-4. Gerekli NuGet paketlerinin yüklü olduğundan emin olun  
-5. F5 ile projeyi başlatın  
-
----
-
- Proje Yapısı
----
-
-```
-LibraryAutomation1-master/
-├── LibraryAutomation1/
-│   ├── Controllers/   # İş mantığı (Controller katmanı)
-│   ├── Models/        # Veritabanı modelleri
-│   ├── Views/         # Razor UI dosyaları
-│   ├── Data/          # DbContext ve veritabanı yapılandırması
-│   ├── wwwroot/       # Statik dosyalar (CSS, JS, görseller)
-│   └── Program.cs     # Uygulama başlangıç noktası
-├── LibraryAutomation1.sln
-└── LICENSE
-```
-
----
-
-
-
-
-</details>
-
----
-
 <div align="center">
-
-**© 2024 Şilan PEHLİVAN, Merve BARIŞIK, Sevgi GOLGİYAZ and Emira Meryem ERKAN**
-
-Bu proje MIT lisansı kapsamında sunulmaktadır. Kullanım ve dağıtım koşulları: [LICENSE](LICENSE).
-
+<sub>© 2024 Şilan PEHLİVAN, Merve BARIŞIK, Sevgi GOLGİYAZ and Emira Meryem ERKAN · <a href="LICENSE">MIT lisansı</a></sub>
 </div>
