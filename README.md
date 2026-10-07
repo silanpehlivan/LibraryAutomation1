@@ -2,18 +2,33 @@
 
 # Kütüphane Otomasyonu
 
-**Kitap, üye ve ödünç yönetimi**
+### Kitaplar, üyeler ve ödünç işlemleri aynı yerde.
 
-![C#](https://img.shields.io/badge/C%23-2563eb?style=flat-square)
-![ASP.NET Core 8 MVC](https://img.shields.io/badge/ASP.NET%20Core%208%20MVC-0891b2?style=flat-square)
-![EF Core](https://img.shields.io/badge/EF%20Core-7c3aed?style=flat-square)
-[![MIT License](https://img.shields.io/badge/License-MIT-16a34a?style=flat-square)](LICENSE)
+![C#](https://img.shields.io/badge/C%23-2563eb?style=for-the-badge)
+![ASP.NET Core 8 MVC](https://img.shields.io/badge/ASP.NET%20Core%208%20MVC-0891b2?style=for-the-badge)
+![EF Core](https://img.shields.io/badge/EF%20Core-7c3aed?style=for-the-badge)
+[![MIT](https://img.shields.io/badge/MIT-16a34a?style=for-the-badge)](LICENSE)
 
 Kitap envanteri, üye kayıtları ve ödünç/iade süreçlerini ortak bir web arayüzünde yöneten kütüphane uygulaması.
+
+**Kitap, üye ve ödünç yönetimi**
+
+[Projeyi keşfet](https://github.com/silanpehlivan/LibraryAutomation1/tree/master) · [Kurulum ve ayrıntılar](#projeyi-çalıştırmak-ve-incelemek)
 
 </div>
 
 ---
+
+## İçeride neler var?
+
+- **01** · Kitap ve üye kayıtları
+- **02** · Ödünç ve iade takibi
+- **03** · Kütüphane raporları
+
+## Projeyi çalıştırmak ve incelemek
+
+<details>
+<summary><strong>Kurulum, kod yapısı ve teknik notları aç</strong></summary>
 
 ## Öne Çıkanlar
 
@@ -25,7 +40,7 @@ Kitap envanteri, üye kayıtları ve ödünç/iade süreçlerini ortak bir web a
 
 C# · ASP.NET Core 8 MVC · EF Core
 
-## Teknik yaklaşım
+### Teknik yaklaşım
 
 Books, Members, Loans ve Reports controller’ları kütüphane işlemlerini ayırır. ApplicationDbContext SQL Server erişimini, session yapılandırması oturum verisini yönetir.
 
@@ -36,19 +51,18 @@ B --> C[ApplicationDbContext]
 C --> D[SQL Server]
 ```
 
-## Kodu incelemeye başlayın
+### Kodu incelemeye başlayın
 
 - [LibraryAutomation1/Controllers/BooksController.cs](LibraryAutomation1/Controllers/BooksController.cs)
 - [LibraryAutomation1/Controllers/HomeController.cs](LibraryAutomation1/Controllers/HomeController.cs)
 - [LibraryAutomation1/Controllers/LoansController.cs](LibraryAutomation1/Controllers/LoansController.cs)
 - [LibraryAutomation1/Controllers/MembersController.cs](LibraryAutomation1/Controllers/MembersController.cs)
 
-## Kapsam ve sınırlar
+### Kapsam ve sınırlar
 
 Üretim kullanımı öncesinde rol kontrolleri ve veri erişimi ayrıca incelenmelidir; middleware yapılandırması tek başına tüm uç noktaların yetkilendirildiğini kanıtlamaz.
 
-<details>
-<summary><strong>Kurulum, kullanım ve teknik ayrıntılar</strong></summary>
+
 
 Bu proje, modern web teknolojileri kullanılarak geliştirilmiş, kütüphane operasyonlarını dijitalleştirmeyi amaçlayan kapsamlı bir **ASP.NET Core 8.0 MVC** uygulamasıdır. Kitap yönetiminden üye işlemlerine, ödünç alma süreçlerinden raporlamaya kadar bir kütüphanede ihtiyaç duyulan tüm temel işlevleri kapsamaktadır.
 
@@ -187,6 +201,8 @@ LibraryAutomation1-master/
 ```
 
 ---
+
+
 
 
 </details>
